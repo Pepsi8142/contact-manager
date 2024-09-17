@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Details
+{% endblock %}
+
+{% block content %}
+    <h1>This is the Employee Details page of {{ employee.name }}</h1>
+    <h2>Detail Information of {{ contact.first_name }} {{ contact.last_name }}</h2>
+    
+    <table>
+        <tr>
+            <td><strong>Index:</strong></td>
+            <td>{{ contact.pk }}.</td>
+        </tr>
+        <tr>
+            <td><strong>Name:</strong></td>
+            <td>{{ contact.first_name }} {{ contact.last_name }}</td>
+        </tr>
+        <tr>
+            <td><strong>Phone:</strong></td>
+            <td>{{ contact.phone }}</td>
+        </tr>
+        <tr>
+            <td><strong>Email:</strong></td>
+            <td>{{ contact.email }}</td>
+        </tr>
+        <tr>
+            <td><strong>Address:</strong></td>
+            <td>{{ contact.address }}</td>
+        </tr>
+    </table>
+    
+    <menu>
+        <li><a href="{% url 'edit_contact' contact.pk %}">Edit</a></li>
+        <li><a href="{% url 'delete_contact' contact.pk %}">Delete</a></li>
+    </menu>
+{% endblock %}
